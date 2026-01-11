@@ -1,12 +1,13 @@
 <?php
-session_start();
-if (empty($_SESSION['user'])) {
-    header('Location: /POO/views/login.php');
-    exit;
+require_once __DIR__ . '/../utils/auth.php';
+// protection simple : vérifier la session et le rôle
+if (!currentUser()) {
+  header('Location: /POO/views/login.php');
+  exit;
 }
-if (strtoupper($_SESSION['user']['role'] ?? '') !== 'ADMIN') {
-    echo 'Accès refusé.';
-    exit;
+if (!hasRole('ADMIN')) {
+  echo 'Accès refusé.';
+  exit;
 }
 ?>
 <!DOCTYPE html>
@@ -15,29 +16,39 @@ if (strtoupper($_SESSION['user']['role'] ?? '') !== 'ADMIN') {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Dashboard Admin</title>
+    <link rel="stylesheet" href="/POO/assets/css/dashboard.css">
     <link rel="stylesheet" href="/POO/assets/css/auth.css">
-    <style>.wrap{max-width:1100px;margin:2rem auto}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <h2>Admin Panel</h2>
-      <p class="small-text">Gestion globale</p>
-      <p><a class="link" href="/POO/core/logout.php">Se déconnecter</a></p>
-    </header>
+  <div class="dash-container">
+    <div class="dash-sidebar">
+      <h2>Admin</h2>
+      <nav>
+        <a href="/POO/views/dashborAdmin.php">Panel</a>
+        <a href="/POO/views/dashborChef.php">Projets</a>
+        <a href="/POO/views/dashbordMembre.php">Membres</a>
+        <a href="/POO/core/logout.php">Se déconnecter</a>
+      </nav>
+    </div>
+    <div class="dash-main wrap">
+      <header class="dash-header">
+        <div class="dash-title">Admin Panel</div>
+        <div class="dash-actions"><span class="muted">Gestion globale</span></div>
+      </header>
 
-    <div class="grid3 mt-2">
-      <div class="card">
-        <h4>Utilisateurs</h4>
-        <p class="helper">Total utilisateurs, activer/désactiver</p>
-      </div>
-      <div class="card">
-        <h4>Projets</h4>
-        <p class="helper">Créer / désactiver projets</p>
-      </div>
-      <div class="card">
-        <h4>Statistiques</h4>
-        <p class="helper">Métriques globales</p>
+      <div class="grid3 mt-2">
+        <div class="card">
+          <h4>Utilisateurs</h4>
+          <p class="helper">Total utilisateurs, activer/désactiver</p>
+        </div>
+        <div class="card">
+          <h4>Projets</h4>
+          <p class="helper">Créer / désactiver projets</p>
+        </div>
+        <div class="card">
+          <h4>Statistiques</h4>
+          <p class="helper">Métriques globales</p>
+        </div>
       </div>
     </div>
   </div>
