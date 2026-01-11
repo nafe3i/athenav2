@@ -10,11 +10,11 @@ class UtilisateurRepos
         $this->db = Database::getInstance()->getconnection();
     }
 
-    public function ajoute($nom, $email, $mot_de_passe): bool
+    public function ajoute($nom, $email, $mot_de_passe, $role): bool
     {
-        $sql = "INSERT INTO utilisateurs (nom,email,mot_de_passe) VALUES (?,?,?)";
+        $sql = "INSERT INTO utilisateurs (nom,email,mot_de_passe,role) VALUES (?,?,?,?)";
         $stmt = $this->db->prepare($sql);
-        return (bool)$stmt->execute([$nom, $email, $mot_de_passe]);
+        return (bool)$stmt->execute([$nom, $email, $mot_de_passe, $role]);
     }
 
     public function update($nom, $email, $actif, $id)

@@ -29,6 +29,14 @@
             <label class="form-label">Mot de passe</label>
             <input class="form-control" type="password" name="mot_de_passe" required>
         </div>
+         <div class="role">
+            <label class="form-label">Rôle</label>
+            <select class="form-control" name="role">
+                <option value="MEMBRE">Membre</option>
+                <option value="CHEF">Chef de projet</option>
+                <option value="ADMIN">Administrateur</option>
+            </select>
+        </div>
         <div class="form-group">
             <button class="btn btn-primary" type="submit">S'inscrire</button>
         </div>

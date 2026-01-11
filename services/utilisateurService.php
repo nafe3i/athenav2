@@ -10,7 +10,7 @@ class UtilisateurService
         $this->userRepo = new UtilisateurRepos();
     }
 
-    public function verifierAjoute($nom, $email, $mot_de_passe)
+    public function verifierAjoute($nom, $email, $mot_de_passe, $role)
     {
         $hash_password = password_hash($mot_de_passe,PASSWORD_DEFAULT);
         $userExist = $this->userRepo->findByEmail($email);
@@ -20,7 +20,7 @@ class UtilisateurService
                 "message" => "Email déjà utilisé"
             ];
         }
-        $result = $this->userRepo->ajoute($nom, $email, $hash_password);
+        $result = $this->userRepo->ajoute($nom, $email, $hash_password, $role);
 
         if ($result) {
             return [

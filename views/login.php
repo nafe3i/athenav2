@@ -25,6 +25,7 @@
             <label class="form-label">Mot de passe</label>
             <input class="form-control" type="password" name="mot_de_passe" required>
         </div>
+       
         <div class="form-group">
             <button class="btn btn-primary" type="submit">Se connecter</button>
         </div>

@@ -6,9 +6,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nom = trim($_POST["nom"] ?? "");
     $email = trim($_POST["email"] ?? "");
     $mot_de_passe = $_POST["mot_de_passe"] ?? "";
+    $role = $_POST["role"] ?? "MEMBRE";
 
     $service = new UtilisateurService();
-    $result = $service->verifierAjoute($nom, $email, $mot_de_passe);
+    $result = $service->verifierAjoute($nom, $email, $mot_de_passe, $role);
     $message = $result["message"] ?? '';
     $success = $result["success"] ?? false;
     // La vue peut afficher $message et agir sur $success
