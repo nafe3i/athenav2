@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/../utils/auth.php';
-// protection simple : vérifier la session et le rôle
 if (!currentUser()) {
   header('Location: /POO/views/login.php');
   exit;

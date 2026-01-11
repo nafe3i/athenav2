@@ -40,6 +40,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: /POO/views/dashborAdmin.php');
         exit;
     }
-    header('Location: /POO/views/dashborChef.php');
+    elseif ($currentRole === 'CHEF') {
+        header('Location: /POO/views/dashborChef.php');
+    }
+    else {
+        header('Location: /POO/views/dashbordMembre.php');
+    }
     exit;
 }
