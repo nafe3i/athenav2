@@ -1,5 +1,5 @@
 <?php
-require_once "../services/utilisateurService.php";
+require_once __DIR__ . '/../services/utilisateurService.php';
 
 // Le contrôleur prépare $message pour la vue sans l'echoer directement
 if ($_SERVER["REQUEST_METHOD"] === "POST") {

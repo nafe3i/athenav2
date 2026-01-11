@@ -1,6 +1,6 @@
 <?php
-require '../config/database.php';
-require '../entities/utilisateur.php';
+require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../entities/utilisateur.php';
 
 class UtilisateurRepos
 {

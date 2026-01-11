@@ -1,6 +1,6 @@
 <?php
 
-include "../repositories/utilisateurRepos.php";
+require_once __DIR__ . '/../repositories/utilisateurRepos.php';
 class UtilisateurService
 {
     private UtilisateurRepos $userRepo;

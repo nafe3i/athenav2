@@ -24,9 +24,7 @@ if (!hasAnyRole(['MEMBRE','CHEF','ADMIN'])) {
     <div class="dash-sidebar">
       <h2>Menu</h2>
       <nav>
-        <a href="/POO/views/dashborChef.php">Tableau</a>
         <a href="/POO/views/dashbordMembre.php">Mes tâches</a>
-        <a href="/POO/views/dashborAdmin.php">Admin</a>
         <a href="/POO/core/logout.php">Se déconnecter</a>
       </nav>
     </div>

@@ -1,5 +1,5 @@
 <?php
-include "../repositories/projectRepos.php";
+require_once __DIR__ . '/../repositories/projectRepos.php';
 
 class ProjectService
 {
